@@ -1,0 +1,11 @@
+## JavaScript
+--next
+-main TestMain
+-lib buddy
+-cp src
+-cp tests
+-js build/test.nodejs.js
+-D nodejs
+-D buddy-colors
+-cmd echo "---------- Node.js ----------"
+-cmd node build/test.nodejs.js
