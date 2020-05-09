@@ -43,6 +43,11 @@ abstract Tuple(Vector<Float>) from Vector<Float> to Vector<Float> {
 		return new Tuple(a.x * b, a.y * b, a.z * b, a.w * b);
 	}
 
+	@:op(A * B)
+	public static function multiplayByTuple(a:Tuple, b:Tuple):Tuple {
+		return new Tuple(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
+	}
+
 	@:op(A / B)
 	public static function divideByScalar(a:Tuple, b:Float):Tuple {
 		return new Tuple(a.x / b, a.y / b, a.z / b, a.w / b);

@@ -63,6 +63,15 @@ class TuplesTest extends BuddySuite {
 					result.should.equal(output);
 				});
 			});
+			describe("multiplay with tuple", {
+				it("should multiplay with tuple", {
+					var a = create(1, -2, 3, -4);
+					var b = create(0.5, 2, -1, -2);
+					var result = a * b;
+					var output = create(0.5, -4, -3, 8);
+					result.should.equal(output);
+				});
+			});
 			describe("divide by scalar", {
 				it("should divide by scalar", {
 					var input = create(1, -2, 3, -4);

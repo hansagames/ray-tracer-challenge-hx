@@ -3,6 +3,8 @@ package utils;
 import utils.TuplesCreator.create;
 import utils.TuplesCreator.createPoint;
 import utils.TuplesCreator.createVector;
+import utils.TuplesCreator.createColor;
+import types.Tuple;
 
 using utils.Tuples;
 
@@ -21,6 +23,9 @@ class TuplesCreatorTest extends BuddySuite {
 				});
 				it("should have w = 0 for vector", {
 					createVector(2, 3, 4).w.should.be(0);
+				});
+				it("should create color", {
+					createColor(1, 1, 1).should.equal(new Tuple(1, 1, 1, 0));
 				});
 			});
 		});

@@ -14,4 +14,8 @@ class TuplesCreator {
 	public static function createPoint(x:Float, y:Float, z:Float):Tuple {
 		return new Tuple(x, y, z, 1);
 	}
+
+	public static function createColor(r:Float, g:Float, b:Float):Tuple {
+		return new Tuple(r, g, b, 0);
+	}
 }

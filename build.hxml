@@ -1,0 +1,5 @@
+## Neko
+-cp src
+-main Main
+--neko build/run.neko.n
+-cmd neko build/run.neko.n
