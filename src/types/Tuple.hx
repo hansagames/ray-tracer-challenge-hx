@@ -58,6 +58,12 @@ abstract Tuple(Vector<Float>) from Vector<Float> to Vector<Float> {
 		return new Tuple(a.x * -1, a.y * -1, a.z * -1, a.w * -1);
 	}
 
+	@:arrayAccess
+	public inline function arrayWrite(k:Int, v:Float):Float {
+		this.set(k, v);
+		return v;
+	}
+
 	private inline function get_x():Float {
 		return this[0];
 	}

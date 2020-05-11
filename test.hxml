@@ -1,10 +1,9 @@
 ## JavaScript
 -lib buddy
+-lib hxnodejs
 -cp src
 -cp tests
 -main TestMain
 --js build/test.nodejs.js
--D nodejs
 -D buddy-colors
--cmd echo "---------- Node.js ----------"
 -cmd node build/test.nodejs.js
