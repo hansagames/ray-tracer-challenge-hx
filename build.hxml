@@ -1,5 +1,9 @@
-## Neko
+## NodeJS
+-lib hxnodejs
+-dce full
 -cp src
 -main Main
---neko build/run.neko.n
--cmd neko build/run.neko.n
+--js build/run.nodejs.js
+-D nodejs
+-D js-es=6
+-cmd node build/run.nodejs.js

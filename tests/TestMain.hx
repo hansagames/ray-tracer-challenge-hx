@@ -8,6 +8,7 @@ import utils.CanvasCreatorTest;
 import utils.CanvasPPMTest;
 import utils.MatrixCreatorTest;
 import utils.MatricesTest;
+import utils.TransformationTest;
 import components.CanvasTest;
 
 class TestMain implements Buddy<[
@@ -18,5 +19,6 @@ class TestMain implements Buddy<[
 	CanvasTest,
 	MatrixCreatorTest,
 	MatricesTest,
+	TransformationTest,
 	CanvasPPMTest
 ]> {}
