@@ -1,5 +1,6 @@
 package utils;
 
+import types.Tuple;
 import types.Intersection;
 import types.Sphere;
 import types.Ray;
@@ -26,5 +27,13 @@ class Spheres {
 			createIntersection((-b - Math.sqrt(discriminant)) / (2 * a), sphere),
 			createIntersection((-b + Math.sqrt(discriminant)) / (2 * a), sphere)
 		].groupIntersections();
+	}
+
+	public static function normalAt(sphere:Sphere, point:Tuple):Tuple {
+		final objectPoint = sphere.transform.inverse() * point;
+		final objectNormal = objectPoint - createPoint(0, 0, 0);
+		final worldNormal = sphere.transform.inverse().transpose() * objectNormal;
+		worldNormal.w = 0;
+		return worldNormal.normalize();
 	}
 }

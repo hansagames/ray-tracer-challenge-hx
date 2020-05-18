@@ -2,6 +2,8 @@ package utils;
 
 import types.Tuple;
 
+using utils.Numbers;
+
 class Tuples {
 	public static function isPoint(t:Tuple):Bool {
 		return t.w == 1;
@@ -25,5 +27,14 @@ class Tuples {
 
 	public static function cross(a:Tuple, b:Tuple):Tuple {
 		return new Tuple(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x, 0);
+	}
+
+	public static function reflect(v:Tuple, n:Tuple):Tuple {
+		return v - n * 2 * dot(v, n);
+	}
+
+	public static function roundTo(source:Tuple, digitAfterComma:UInt):Tuple {
+		return new Tuple(source.x.roundTo(digitAfterComma), source.y.roundTo(digitAfterComma), source.z.roundTo(digitAfterComma),
+			source.w.roundTo(digitAfterComma));
 	}
 }

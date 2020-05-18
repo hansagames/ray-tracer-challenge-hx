@@ -14,9 +14,11 @@ import utils.RaysTest;
 import utils.SpheresTest;
 import utils.IntersectionCreatorTest;
 import utils.IntersectionsTest;
+import utils.PointLightCreatorTest;
+import utils.MaterialsCreatorTest;
 import components.CanvasTest;
 
 class TestMain implements Buddy<[
 	TuplesCreatorTest, TuplesTest, ColorTest, CanvasCreatorTest, CanvasTest, MatrixCreatorTest, MatricesTest, TransformationTest, RayCreatorTest, RaysTest,
-	CanvasPPMTest, SpheresTest, IntersectionCreatorTest, IntersectionsTest
+	CanvasPPMTest, SpheresTest, IntersectionCreatorTest, IntersectionsTest, PointLightCreatorTest, MaterialsCreatorTest
 ]> {}

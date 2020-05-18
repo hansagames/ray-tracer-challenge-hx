@@ -140,6 +140,18 @@ class TuplesTest extends BuddySuite {
 					a.cross(b).should.equal(result);
 				});
 			});
+			describe("reflect", {
+				it("should reflect vector approuching at 45 degree", {
+					final v = createVector(1, -1, 0);
+					final n = createVector(0, 1, 0);
+					v.reflect(n).should.equal(createVector(1, 1, 0));
+				});
+				it("should reflect off a slanted surface", {
+					final v = createVector(0, -1, 0);
+					final n = createVector(Math.sqrt(2) / 2, Math.sqrt(2) / 2, 0);
+					v.reflect(n).should.equal(createVector(1, 0, 0));
+				});
+			});
 		});
 	}
 }
