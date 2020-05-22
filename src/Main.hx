@@ -1,5 +1,6 @@
 package;
 
+import exercises.Chapter07;
 import exercises.Chapter06;
 import exercises.Chapter05;
 import exercises.Chapter01;
@@ -12,6 +13,7 @@ class Main {
 		// new Chapter02();
 		// new Chapter04();
 		// new Chapter05();
-		new Chapter06();
+		// new Chapter06();
+		new Chapter07();
 	}
 }

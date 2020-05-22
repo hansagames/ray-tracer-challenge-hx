@@ -2,6 +2,9 @@ package utils;
 
 import utils.IntersectionCreator.createIntersection;
 import utils.SphereCreator.createSphere;
+import utils.RayCreator.createRay;
+import utils.TuplesCreator.createVector;
+import utils.TuplesCreator.createPoint;
 
 using utils.Intersections;
 
@@ -49,6 +52,36 @@ class IntersectionsTest extends BuddySuite {
 					final i4 = createIntersection(2, sphere);
 					final xs = [i1, i2, i3, i4].groupIntersections();
 					xs.hit().should.be(i4);
+				});
+			});
+			describe("prepeareComputation", {
+				it("should precompute state of intersection", {
+					final ray = createRay(createPoint(0, 0, -5), createVector(0, 0, 1));
+					final shape = createSphere();
+					final i = createIntersection(4, shape);
+					final comps = i.prepeareComputation(ray);
+					comps.t.should.be(i.t);
+					comps.object.should.be(shape);
+					comps.point.should.equal(createPoint(0, 0, -1));
+					comps.eyeView.should.equal(createVector(0, 0, -1));
+					comps.normal.should.equal(createVector(0, 0, -1));
+				});
+				it("should hit when an intersection occurs on the outside", {
+					final ray = createRay(createPoint(0, 0, -5), createVector(0, 0, 1));
+					final shape = createSphere();
+					final i = createIntersection(4, shape);
+					final comps = i.prepeareComputation(ray);
+					comps.inside.should.be(false);
+				});
+				it("should hit when an intersection occurs on the inside", {
+					final ray = createRay(createPoint(0, 0, 0), createVector(0, 0, 1));
+					final shape = createSphere();
+					final i = createIntersection(1, shape);
+					final comps = i.prepeareComputation(ray);
+					comps.point.should.equal(createPoint(0, 0, 1));
+					comps.eyeView.should.equal(createVector(0, 0, -1));
+					comps.inside.should.be(true);
+					comps.normal.should.equal(createVector(0, 0, -1));
 				});
 			});
 		});

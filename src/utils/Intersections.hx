@@ -1,6 +1,12 @@
 package utils;
 
+import types.IntersectionData;
+import types.Ray;
 import types.Intersection;
+
+using utils.Rays;
+using utils.Spheres;
+using utils.Tuples;
 
 class Intersections {
 	public static function groupIntersections(source:Array<Intersection>):Array<Intersection> {
@@ -16,6 +22,23 @@ class Intersections {
 			}
 		}
 		return null;
+	}
+
+	public static function prepeareComputation(intersection:Intersection, ray:Ray):IntersectionData {
+		final data = new IntersectionData();
+		data.t = intersection.t;
+		data.object = intersection.object;
+		data.point = ray.position(data.t);
+		data.eyeView = -ray.direction;
+		data.normal = data.object.normalAt(data.point);
+
+		if (data.normal.dot(data.eyeView) <= 0) {
+			data.inside = true;
+			data.normal = -data.normal;
+		} else {
+			data.inside = false;
+		}
+		return data;
 	}
 
 	private static function sortIntersections(a:Intersection, b:Intersection):Int {

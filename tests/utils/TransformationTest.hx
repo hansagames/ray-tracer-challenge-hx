@@ -8,6 +8,8 @@ import utils.Transformation.rotationX;
 import utils.Transformation.rotationY;
 import utils.Transformation.rotationZ;
 import utils.Transformation.shearing;
+import utils.Transformation.viewTransformation;
+import utils.MatrixCreator.createMatrix;
 
 using utils.Matrices;
 
@@ -153,6 +155,32 @@ class TransformationTest extends BuddySuite {
 					final C = translation(10, 5, 7);
 					final T = C * B * A;
 					(T * p).should.equal(createPoint(15, 0, 7));
+				});
+			});
+			describe("viewTransformation", {
+				it("should calculate matrix for positive Z direction", {
+					final from = createPoint(0, 0, 0);
+					final to = createPoint(0, 0, 1);
+					final up = createVector(0, 1, 0);
+					final t = viewTransformation(from, to, up);
+					t.should.equal(scaling(-1, 1, -1));
+				});
+				it("should move world", {
+					final from = createPoint(0, 0, 8);
+					final to = createPoint(0, 0, 1);
+					final up = createVector(0, 1, 0);
+					final t = viewTransformation(from, to, up);
+					t.should.equal(translation(0, 0, -8));
+				});
+				it("should calculate arbitary transformation", {
+					final from = createPoint(1, 3, 2);
+					final to = createPoint(4, -2, 8);
+					final up = createVector(1, 1, 0);
+					final t = viewTransformation(from, to, up);
+					t.should.equal(createMatrix(4, 4).fill([
+						-0.5070925528371099, 0.5070925528371099, 0.6761234037828132, -2.366431913239846, 0.7677159338596801, 0.6060915267313263,
+						0.12121830534626524, -2.8284271247461894, -0.35856858280031806, 0.5976143046671968, -0.7171371656006361, 0, 0, 0, 0, 1
+					]));
 				});
 			});
 		});
