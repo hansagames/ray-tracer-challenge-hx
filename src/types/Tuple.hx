@@ -3,7 +3,7 @@ package types;
 import haxe.ds.Vector;
 
 abstract Tuple(Vector<Float>) from Vector<Float> to Vector<Float> {
-	private static final Epsilon = 0.0001;
+	private static final Epsilon = Consts.Epsilon;
 
 	inline public function new(x:Float, y:Float, z:Float, w:Float) {
 		this = new Vector<Float>(4);

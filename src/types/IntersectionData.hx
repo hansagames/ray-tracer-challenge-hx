@@ -7,6 +7,7 @@ class IntersectionData {
 	public var eyeView:Tuple;
 	public var normal:Tuple;
 	public var inside:Bool;
+	public var overPoint:Tuple;
 
 	public function new() {}
 }

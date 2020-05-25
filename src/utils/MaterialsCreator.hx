@@ -12,13 +12,17 @@ class MaterialsCreator {
 		return new Material();
 	}
 
-	public static function lighting(m:Material, light:PointLight, point:Tuple, eyeView:Tuple, n:Tuple):Tuple {
+	public static function lighting(m:Material, light:PointLight, point:Tuple, eyeView:Tuple, n:Tuple, inShadow:Bool):Tuple {
 		final efectiveColor = m.color * light.intensity;
 		final lightDirection = (light.position - point).normalize();
 		final ambient = efectiveColor * m.ambient;
 		final lightDot = lightDirection.dot(n);
 		var diffuse:Tuple;
 		var specular:Tuple;
+
+		if (inShadow) {
+			return ambient;
+		}
 
 		if (lightDot < 0) {
 			diffuse = createColor(0, 0, 0);

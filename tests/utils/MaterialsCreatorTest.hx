@@ -40,35 +40,42 @@ class MaterialsCreatorTest extends BuddySuite {
 					eyeView = createVector(0, 0, -1);
 					normal = createVector(0, 0, -1);
 					light = createPointLight(createPoint(0, 0, -10), createColor(1, 1, 1));
-					result = lighting(m, light, position, eyeView, normal);
+					result = lighting(m, light, position, eyeView, normal, false);
 					result.should.equal(createColor(1.9, 1.9, 1.9));
 				});
 				it("should light with eye between light and surface, eye offset 45 degree", {
 					eyeView = createVector(0, Math.sqrt(2) / 2, -Math.sqrt(2) / 2);
 					normal = createVector(0, 0, -1);
 					light = createPointLight(createPoint(0, 0, -10), createColor(1, 1, 1));
-					result = lighting(m, light, position, eyeView, normal);
+					result = lighting(m, light, position, eyeView, normal, false);
 					result.should.equal(createColor(1, 1, 1));
 				});
 				it("should light with eye opposite the surface, eye offset 45 degree", {
 					eyeView = createVector(0, 0, -1);
 					normal = createVector(0, 0, -1);
 					light = createPointLight(createPoint(0, 10, -10), createColor(1, 1, 1));
-					result = lighting(m, light, position, eyeView, normal);
+					result = lighting(m, light, position, eyeView, normal, false);
 					result.roundTo(4).should.equal(createColor(0.7364, 0.7364, 0.7364));
 				});
 				it("should light with eye in path of reflection vector", {
 					eyeView = createVector(0, -Math.sqrt(2) / 2, -Math.sqrt(2) / 2);
 					normal = createVector(0, 0, -1);
 					light = createPointLight(createPoint(0, 10, -10), createColor(1, 1, 1));
-					result = lighting(m, light, position, eyeView, normal);
+					result = lighting(m, light, position, eyeView, normal, false);
 					result.roundTo(4).should.equal(createColor(1.6364, 1.6364, 1.6364));
 				});
 				it("should light with light behind the surface", {
 					eyeView = createVector(0, 0, -1);
 					normal = createVector(0, 0, -1);
 					light = createPointLight(createPoint(0, 0, 10), createColor(1, 1, 1));
-					result = lighting(m, light, position, eyeView, normal);
+					result = lighting(m, light, position, eyeView, normal, false);
+					result.should.equal(createColor(0.1, 0.1, 0.1));
+				});
+				it("should light with shadow", {
+					eyeView = createVector(0, 0, -1);
+					normal = createVector(0, 0, -1);
+					light = createPointLight(createPoint(0, 0, -10), createColor(1, 1, 1));
+					result = lighting(m, light, position, eyeView, normal, true);
 					result.should.equal(createColor(0.1, 0.1, 0.1));
 				});
 			});

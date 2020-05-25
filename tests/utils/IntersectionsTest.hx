@@ -5,6 +5,8 @@ import utils.SphereCreator.createSphere;
 import utils.RayCreator.createRay;
 import utils.TuplesCreator.createVector;
 import utils.TuplesCreator.createPoint;
+import utils.Transformation.translation;
+import types.Consts.Epsilon;
 
 using utils.Intersections;
 
@@ -82,6 +84,15 @@ class IntersectionsTest extends BuddySuite {
 					comps.eyeView.should.equal(createVector(0, 0, -1));
 					comps.inside.should.be(true);
 					comps.normal.should.equal(createVector(0, 0, -1));
+				});
+				it("should offset the point", {
+					final ray = createRay(createPoint(0, 0, -5), createVector(0, 0, 1));
+					final shape = createSphere();
+					shape.transform = translation(0, 0, 1);
+					final i = createIntersection(5, shape);
+					final comps = i.prepeareComputation(ray);
+					comps.overPoint.z.should.beLessThan(-Epsilon * 0.5);
+					comps.point.z.should.beGreaterThan(comps.overPoint.z);
 				});
 			});
 		});

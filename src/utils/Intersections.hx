@@ -3,6 +3,7 @@ package utils;
 import types.IntersectionData;
 import types.Ray;
 import types.Intersection;
+import types.Consts.Epsilon;
 
 using utils.Rays;
 using utils.Spheres;
@@ -38,6 +39,8 @@ class Intersections {
 		} else {
 			data.inside = false;
 		}
+
+		data.overPoint = data.point + data.normal * Epsilon;
 		return data;
 	}
 
