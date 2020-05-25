@@ -6,7 +6,7 @@ class World {
 
 	public var lights(default, null):Array<PointLight>;
 
-	public var meshes(default, null):Array<Sphere>;
+	public var meshes(default, null):Array<Shape>;
 
 	public function new() {
 		meshes = [];
@@ -38,11 +38,11 @@ class World {
 		return this;
 	}
 
-	public function containsMesh(mesh:Sphere):Bool {
+	public function containsMesh(mesh:Shape):Bool {
 		return meshes.indexOf(mesh) >= 0;
 	}
 
-	public function addMesh(mesh:Sphere):World {
+	public function addMesh(mesh:Shape):World {
 		if (!containsMesh(mesh)) {
 			meshes.push(mesh);
 		}

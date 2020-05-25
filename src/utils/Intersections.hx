@@ -6,7 +6,6 @@ import types.Intersection;
 import types.Consts.Epsilon;
 
 using utils.Rays;
-using utils.Spheres;
 using utils.Tuples;
 
 class Intersections {

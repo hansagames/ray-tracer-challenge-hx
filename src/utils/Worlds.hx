@@ -9,7 +9,6 @@ import utils.MaterialsCreator.lighting;
 import utils.TuplesCreator.createColor;
 import utils.RayCreator.createRay;
 
-using utils.Spheres;
 using utils.Intersections;
 using utils.Tuples;
 

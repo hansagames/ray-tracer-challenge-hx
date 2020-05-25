@@ -1,10 +1,10 @@
 package utils;
 
-import types.Sphere;
+import types.Shape;
 import types.Intersection;
 
 class IntersectionCreator {
-	public static function createIntersection(t:Float, object:Sphere):Intersection {
+	public static function createIntersection(t:Float, object:Shape):Intersection {
 		return new Intersection(t, object);
 	}
 }

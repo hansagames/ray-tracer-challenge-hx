@@ -12,7 +12,6 @@ import haxe.io.Path;
 
 using utils.Tuples;
 using utils.CanvasPPM;
-using utils.Spheres;
 using utils.Intersections;
 using utils.Rays;
 

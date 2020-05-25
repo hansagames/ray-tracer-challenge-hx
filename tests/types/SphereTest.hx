@@ -1,21 +1,18 @@
-package utils;
+package types;
 
 import utils.RayCreator.createRay;
 import utils.TuplesCreator.createPoint;
 import utils.TuplesCreator.createVector;
 import utils.SphereCreator.createSphere;
-import utils.MatrixCreator.createIdentityMatrix;
 import utils.Transformation.translation;
 import utils.Transformation.scaling;
 import utils.Transformation.rotationZ;
-import utils.MaterialsCreator.createMaterial;
 
-using utils.Spheres;
 using utils.Tuples;
 
-class SpheresTest extends BuddySuite {
+class SphereTest extends BuddySuite {
 	public function new() {
-		describe("SpheresTest", {
+		describe("SphereTest", {
 			describe("intersects", {
 				it("should intersect sphere at 2 points", {
 					final ray = createRay(createPoint(0, 0, -5), createVector(0, 0, 1));
@@ -78,33 +75,6 @@ class SpheresTest extends BuddySuite {
 					sphere.transform = translation(5, 0, 0);
 					final xs = sphere.intersects(ray);
 					xs.length.should.be(0);
-				});
-			});
-			describe("transform", {
-				it("should have default identity matrix as transform", {
-					final sphere = createSphere();
-					final identity = createIdentityMatrix(4, 4);
-					sphere.transform.should.equal(identity);
-				});
-				it("should set sphere transform", {
-					final sphere = createSphere();
-					final m = translation(2, 3, 4);
-					sphere.transform = m;
-					sphere.transform.should.equal(m);
-				});
-			});
-			describe("material", {
-				it("should have default material", {
-					final sphere = createSphere();
-					final m = createMaterial();
-					sphere.material.should.equal(m);
-				});
-				it("should update material", {
-					final sphere = createSphere();
-					final m = createMaterial();
-					m.ambient = 1;
-					sphere.material = m;
-					sphere.material.should.equal(m);
 				});
 			});
 			describe("normalAt", {
