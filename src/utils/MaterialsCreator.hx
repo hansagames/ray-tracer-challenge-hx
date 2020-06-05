@@ -1,9 +1,11 @@
 package utils;
 
+import types.Shape;
 import types.PointLight;
 import types.Tuple;
 import types.Material;
 import utils.TuplesCreator.createColor;
+import utils.Paterns.patternAtShape;
 
 using utils.Tuples;
 
@@ -12,8 +14,9 @@ class MaterialsCreator {
 		return new Material();
 	}
 
-	public static function lighting(m:Material, light:PointLight, point:Tuple, eyeView:Tuple, n:Tuple, inShadow:Bool):Tuple {
-		final efectiveColor = m.color * light.intensity;
+	public static function lighting(m:Material, object:Shape, light:PointLight, point:Tuple, eyeView:Tuple, n:Tuple, inShadow:Bool):Tuple {
+		final color = (m.pattern != null) ? patternAtShape(m.pattern, object, point) : m.color;
+		final efectiveColor = color * light.intensity;
 		final lightDirection = (light.position - point).normalize();
 		final ambient = efectiveColor * m.ambient;
 		final lightDot = lightDirection.dot(n);

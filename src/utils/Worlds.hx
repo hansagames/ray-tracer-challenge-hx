@@ -22,7 +22,7 @@ class Worlds {
 	}
 
 	public static function shadeHit(w:World, data:IntersectionData):Tuple {
-		return lighting(data.object.material, w.lights[0], data.point, data.eyeView, data.normal, isShadowed(w, data.overPoint));
+		return lighting(data.object.material, data.object, w.lights[0], data.point, data.eyeView, data.normal, isShadowed(w, data.overPoint));
 	}
 
 	public static function colorAt(w:World, ray:Ray):Tuple {

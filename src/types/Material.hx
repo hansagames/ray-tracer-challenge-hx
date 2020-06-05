@@ -8,6 +8,7 @@ class Material {
 	public var diffuse:Float;
 	public var specular:Float;
 	public var shininess:Float;
+	public var pattern:Null<Pattern>;
 
 	public function new() {
 		color = createColor(1, 1, 1);
@@ -18,6 +19,7 @@ class Material {
 	}
 
 	public static function equals(a:Material, b:Material):Bool {
-		return a.ambient == b.ambient && a.color == b.color && a.diffuse == b.diffuse && a.shininess == b.shininess && a.specular == b.specular;
+		return a.ambient == b.ambient && a.color == b.color && a.diffuse == b.diffuse && a.shininess == b.shininess && a.specular == b.specular
+			&& a.pattern == b.pattern;
 	}
 }

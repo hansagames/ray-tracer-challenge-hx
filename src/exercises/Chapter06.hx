@@ -39,7 +39,7 @@ class Chapter06 {
 					final p = ray.position(hit.t);
 					final n = hit.object.normalAt(p);
 					final eye = ray.direction;
-					final color = lighting(hit.object.material, light, p, eye, n, false);
+					final color = lighting(hit.object.material, hit.object, light, p, eye, n, false);
 					canvas.writePixel(x, y, color);
 				}
 			}

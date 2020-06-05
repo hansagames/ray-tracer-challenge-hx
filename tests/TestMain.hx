@@ -19,6 +19,7 @@ import utils.WorldCreatorTest;
 import utils.WorldsTest;
 import utils.CameraCreatorTest;
 import utils.CamerasTest;
+import utils.PatternsTest;
 import components.CanvasTest;
 import types.ShapeTest;
 import types.SphereTest;
@@ -27,5 +28,5 @@ import types.PlaneTest;
 class TestMain implements Buddy<[
 	TuplesCreatorTest, TuplesTest, ColorTest, CanvasCreatorTest, CanvasTest, MatrixCreatorTest, MatricesTest, TransformationTest, RayCreatorTest, RaysTest,
 	CanvasPPMTest, IntersectionCreatorTest, IntersectionsTest, PointLightCreatorTest, MaterialsCreatorTest, WorldCreatorTest, WorldsTest, CameraCreatorTest,
-	CamerasTest, ShapeTest, SphereTest, PlaneTest
+	CamerasTest, ShapeTest, SphereTest, PlaneTest, PatternsTest
 ]> {}
