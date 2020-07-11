@@ -4,6 +4,7 @@ import utils.RayCreator.createRay;
 import utils.TuplesCreator.createPoint;
 import utils.TuplesCreator.createVector;
 import utils.SphereCreator.createSphere;
+import utils.SphereCreator.glassSphere;
 import utils.Transformation.translation;
 import utils.Transformation.scaling;
 import utils.Transformation.rotationZ;
@@ -111,6 +112,13 @@ class SphereTest extends BuddySuite {
 					sphere.transform = scaling(1, 0.5, 1) * rotationZ(Math.PI / 5);
 					final n = sphere.normalAt(createPoint(0, Math.sqrt(2) / 2, -Math.sqrt(2) / 2));
 					n.should.equal(createVector(0, 0.97014, -0.24254));
+				});
+			});
+			describe("glassSphere", {
+				it("should create glass sphere", {
+					final spheres = glassSphere();
+					spheres.material.refractiveIndex.should.be(1.5);
+					spheres.material.transparency.should.be(1);
 				});
 			});
 		});

@@ -6,4 +6,5 @@
 -main TestMain
 --js build/test.nodejs.js
 -D buddy-colors
+-D js-es=6
 -cmd node build/test.nodejs.js

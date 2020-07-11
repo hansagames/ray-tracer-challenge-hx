@@ -25,6 +25,9 @@ class MaterialsCreatorTest extends BuddySuite {
 					material.diffuse.should.be(0.9);
 					material.specular.should.be(0.9);
 					material.shininess.should.be(200);
+					material.reflective.should.be(0);
+					material.transparency.should.be(0);
+					material.refractiveIndex.should.be(1);
 					material.color.should.equal(createColor(1, 1, 1));
 				});
 			});

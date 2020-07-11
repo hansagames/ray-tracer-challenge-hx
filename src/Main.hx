@@ -8,6 +8,7 @@ import exercises.Chapter06;
 import exercises.Chapter07;
 import exercises.Chapter09;
 import exercises.Chapter10;
+import exercises.Chapter11;
 
 class Main {
 	static public function main():Void {
@@ -18,6 +19,7 @@ class Main {
 		// new Chapter06();
 		// new Chapter07();
 		// new Chapter09();
-		new Chapter10();
+		// new Chapter10();
+		new Chapter11();
 	}
 }
