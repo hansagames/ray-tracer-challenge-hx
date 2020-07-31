@@ -25,9 +25,11 @@ import types.ShapeTest;
 import types.SphereTest;
 import types.PlaneTest;
 import types.CubeTest;
+import types.CylinderTest;
+import types.ConeTest;
 
 class TestMain implements Buddy<[
 	TuplesCreatorTest, TuplesTest, ColorTest, CanvasCreatorTest, CanvasTest, MatrixCreatorTest, MatricesTest, TransformationTest, RayCreatorTest, RaysTest,
 	CanvasPPMTest, IntersectionCreatorTest, IntersectionsTest, PointLightCreatorTest, MaterialsCreatorTest, WorldCreatorTest, WorldsTest, CameraCreatorTest,
-	CamerasTest, ShapeTest, SphereTest, PlaneTest, PatternsTest, CubeTest
+	CamerasTest, ShapeTest, SphereTest, PlaneTest, PatternsTest, CubeTest, CylinderTest, ConeTest
 ]> {}

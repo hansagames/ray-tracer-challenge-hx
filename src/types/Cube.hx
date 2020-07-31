@@ -16,7 +16,8 @@ private typedef MinMax = {
 }
 
 class Cube extends Shape {
-	override function intersects(ray:Ray):Array<Intersection> {
+	override function intersects(originalRay:Ray):Array<Intersection> {
+		final ray = originalRay.transform(transform.inverse());
 		final xMinMax:MinMax = checkAxis(ray.origin.x, ray.direction.x);
 		final yMinMax:MinMax = checkAxis(ray.origin.y, ray.direction.y);
 		final zMinMax:MinMax = checkAxis(ray.origin.z, ray.direction.z);
