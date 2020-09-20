@@ -20,8 +20,7 @@ class Plane extends Shape {
 
 	override function normalAt(point:Tuple):Tuple {
 		final objectNormal = createVector(0, 1, 0);
-		final worldNormal = transform.inverse().transpose() * objectNormal;
-		worldNormal.w = 0;
-		return worldNormal.normalize();
+		final worldNormal = normalToWorld(objectNormal);
+		return worldNormal;
 	}
 }

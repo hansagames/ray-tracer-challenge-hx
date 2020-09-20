@@ -26,10 +26,9 @@ class Sphere extends Shape {
 	}
 
 	override function normalAt(point:Tuple):Tuple {
-		final objectPoint = transform.inverse() * point;
+		final objectPoint = worldToObject(point);
 		final objectNormal = objectPoint - createPoint(0, 0, 0);
-		final worldNormal = transform.inverse().transpose() * objectNormal;
-		worldNormal.w = 0;
-		return worldNormal.normalize();
+		final worldNormal = normalToWorld(objectNormal);
+		return worldNormal;
 	}
 }
