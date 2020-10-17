@@ -29,7 +29,7 @@ class Cube extends Shape {
 		return [createIntersection(tMin, this), createIntersection(tMax, this)].groupIntersections();
 	}
 
-	override function normalAt(point:Tuple):Tuple {
+	override function normalAt(point:Tuple, ?i: Intersection):Tuple {
 		final maxc = Math.max(Math.max(Math.abs(point.x), Math.abs(point.y)), Math.abs(point.z));
 		if (maxc == Math.abs(point.x)) {
 			return createVector(point.x, 0, 0);

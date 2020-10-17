@@ -18,7 +18,7 @@ class Plane extends Shape {
 		return [createIntersection(t, this)];
 	}
 
-	override function normalAt(point:Tuple):Tuple {
+	override function normalAt(point:Tuple, ?i: Intersection):Tuple {
 		final objectNormal = createVector(0, 1, 0);
 		final worldNormal = normalToWorld(objectNormal);
 		return worldNormal;

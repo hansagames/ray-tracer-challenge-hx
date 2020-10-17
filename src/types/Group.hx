@@ -5,7 +5,7 @@ using utils.Matrices;
 using utils.Rays;
 
 class Group extends Shape {
-	private var children:Array<Shape>;
+	public var children:Array<Shape>;
 
 	public function new() {
 		super();

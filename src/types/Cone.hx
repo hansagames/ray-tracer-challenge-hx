@@ -59,7 +59,7 @@ class Cone extends Shape {
 		return xs;
 	}
 
-	override function normalAt(point:Tuple):Tuple {
+	override function normalAt(point:Tuple, ?i: Intersection):Tuple {
 		final dist = point.x * point.x + point.z * point.z;
 		if (dist < 1 && point.y >= maximum - Epsilon) {
 			return createVector(0, 1, 0);

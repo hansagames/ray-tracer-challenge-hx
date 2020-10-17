@@ -35,7 +35,7 @@ class Intersections {
 		data.object = intersection.object;
 		data.point = ray.position(data.t);
 		data.eyeView = -ray.direction;
-		data.normal = data.object.normalAt(data.point);
+		data.normal = data.object.normalAt(data.point, intersection);
 
 		if (data.normal.dot(data.eyeView) <= 0) {
 			data.inside = true;

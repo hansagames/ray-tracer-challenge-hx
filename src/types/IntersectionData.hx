@@ -12,6 +12,5 @@ class IntersectionData {
 	public var n1:Float;
 	public var n2:Float;
 	public var underPoint:Tuple;
-
 	public function new() {}
 }

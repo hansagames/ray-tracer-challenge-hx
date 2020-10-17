@@ -22,7 +22,7 @@ class Shape {
 		return [];
 	}
 
-	public function normalAt(point:Tuple):Tuple {
+	public function normalAt(point:Tuple, ?i: Intersection):Tuple {
 		return createPoint(0, 0, 0);
 	}
 

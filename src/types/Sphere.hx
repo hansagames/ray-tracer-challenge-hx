@@ -25,7 +25,7 @@ class Sphere extends Shape {
 		].groupIntersections();
 	}
 
-	override function normalAt(point:Tuple):Tuple {
+	override function normalAt(point:Tuple, ?i: Intersection):Tuple {
 		final objectPoint = worldToObject(point);
 		final objectNormal = objectPoint - createPoint(0, 0, 0);
 		final worldNormal = normalToWorld(objectNormal);
